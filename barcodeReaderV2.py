@@ -17,6 +17,14 @@ root_dir = os.getcwd()
 raw_image_dir = root_dir + "\\" + 'images'
 scanned_image_dir = root_dir + "\\" + 'scannedPhoto'
 
+# Create the scanned_image_dir if it does not exist yet.
+try:
+	tryOpen = os.listdir(scanned_image_dir)
+	print("scannedPhoto directory not detected, creating..")
+
+except FileNotFoundError as e:
+	os.mkdir(scanned_image_dir)
+	print('\nDirectory made!\n')
 # Log initialisation
 logging.basicConfig(filename='barcodeReader_error.log',level=logging.DEBUG)
 
